@@ -1,0 +1,86 @@
+package mowCloneProject;
+
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class Connexion extends JPanel {
+  private JMenuBar jcomp1;
+  private static JLabel jcomp2;
+  private static JLabel jcomp3;
+  private static JPasswordField jcomp4;
+  private static JTextField jcomp5;
+  private static JButton jcomp6;
+  private JLabel jcomp7;
+
+  public Connexion() {
+
+
+    
+   
+
+      jcomp1 = new JMenuBar();
+    
+      jcomp2 = new JLabel ("Login");
+      jcomp3 = new JLabel ("Password");
+      jcomp4 = new JPasswordField (5);
+      jcomp5 = new JTextField (5);
+      jcomp6 = new JButton ("Valider");
+      jcomp7 = new JLabel ("Cher Utilisateur, rentrez le login et mot de passe par défaut ");
+
+      jcomp4.setToolTipText ("mdp");
+
+      setPreferredSize (new Dimension (667, 366));
+      setLayout (null);
+
+      add (jcomp1);
+      add (jcomp2);
+      add (jcomp3);
+      add (jcomp4);
+      add (jcomp5);
+      add (jcomp6);
+      add (jcomp7);
+
+      jcomp1.setBounds (0, 0, 668, 25);
+      jcomp2.setBounds (120, 135, 100, 25);
+      jcomp3.setBounds (120, 175, 100, 25);
+      jcomp4.setBounds (225, 175, 100, 25);
+      jcomp5.setBounds (225, 135, 100, 25);
+      jcomp6.setBounds (220, 260, 100, 25);
+      jcomp7.setBounds (100, 70, 400, 20);
+  }
+
+
+  public static void main (String[] args) {
+      JFrame frame = new JFrame ("Connexion");
+      frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+      frame.getContentPane().add (new Connexion());
+      frame.pack();
+      frame.setVisible (true);
+      
+	  jcomp6.addActionListener(new ActionListener() {
+	  public void actionPerformed(ActionEvent ae) {
+	  String puname = jcomp5.getText();
+	  String ppaswd = jcomp4.getText();
+	  if(puname.equals("khalifa") && ppaswd.equals("niamadio")) {
+		  
+		  JOptionPane.showMessageDialog(null,"Identifiants corrects");
+
+	  } else {
+
+	  JOptionPane.showMessageDialog(null,"Login / Password incorrects");
+	  jcomp4.setText("");
+	  jcomp5.setText("");
+	  jcomp4.requestFocus();
+	  }
+	  }
+	  });
+ 
+      
+      
+  }
+  
+  
+}
